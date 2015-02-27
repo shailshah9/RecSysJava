@@ -183,7 +183,7 @@
 	<body id="home">
 		<div class="rain">
 			<div class="border start">
-                            <form action="register.jsp"  method="post" >
+                            <form action="Register/register.jsp"  method="post" >
                                 <label for="fname">First Name</label>
                                 <input name="fname" required type="text" />
                                 <label for="lname">Last Name</label>
