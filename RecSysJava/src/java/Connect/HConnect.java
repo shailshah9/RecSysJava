@@ -15,7 +15,7 @@ import org.hibernate.service.ServiceRegistryBuilder;
  * @author Shail Shah
  */
 public class HConnect {
-    private static SessionFactory  factory;
+   
     private static ServiceRegistry serviceRegistry;
     private static SessionFactory  sessionFactory;
 

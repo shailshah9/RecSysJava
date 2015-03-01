@@ -1,61 +1,31 @@
 <%-- 
-    Document   : register
-    Created on : 1 Feb, 2015, 4:54:57 PM
-    Author     : bsnl
+    Document   : register.jsp
+    Created on : Feb 28, 2015, 1:38:32 AM
+    Author     : Shail Shah
 --%>
 
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="java.security.MessageDigest"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="Connect.UserDao"%>  
+<jsp:useBean id="obj" class="GetterSetter.GS_Reg">  
+</jsp:useBean>  
+<jsp:setProperty property="*" name="obj"/>  
+  
+<%  
+int i=UserDao.register(obj);
+out.print(obj.getFname());
+out.print(i+"\n");
+if(i>0)  
+out.print("You are successfully registered");  
+  
+%>  
+
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Registration</title>
+        <title>JSP Page</title>
     </head>
-    <body>    
-        <%--jsp:include page="/RecSysJava/sql"/--%>
-        <%! PreparedStatement ps;
-        Connection con;
-        boolean t;
-        byte[] pswd;
-        String fname,lname,email,pass,date,num,userid,query;%>
-        <% try{
-            con=(Connection)request.getAttribute("con");
-            fname=request.getParameter("fname");
-            lname=request.getParameter("lname");
-            email=request.getParameter("email");
-            pass=request.getParameter("pass");
-            date=request.getParameter("date");
-            num=request.getParameter("phno");
-            userid=email.split("@")[0];
-            MessageDigest d=MessageDigest.getInstance("SHA-1");
-            d.reset();
-            d.update(pass.getBytes("UTF-8"));
-            pswd=d.digest();
-            t=true;
-            query = "insert into user values(?,?,?,?,?,?,?,?)";
-            ps=con.prepareStatement(query);
-            ps.setString(1,userid);
-            ps.setString(2,fname);
-            ps.setString(3,lname);
-            ps.setString(4,email);
-            ps.setBytes(5,pswd);
-            ps.setString(6,num);
-            ps.setString(7,date);
-            ps.setBoolean(8,t);
-            ps.executeUpdate();
-        }
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }
-        finally{
-            ps.close();
-            con.close();
-        }
-        %>
-        Registered.
+    <body>
+        <h1>Hello World!</h1>
     </body>
 </html>
