@@ -9,7 +9,6 @@ package Connect;
 //~--- non-JDK imports --------------------------------------------------------
 
 import GetterSetter.GS_Reg;
-import javax.servlet.ServletContext;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

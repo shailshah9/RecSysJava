@@ -1,15 +1,19 @@
-
 package GetterSetter;
-
 
 /**
  *
  * @author Shail Shah
  */
 public class GS_Reg {
-    int id;
-
-    int t;
+    int    id;
+    int    t;
+    String fname;
+    String lname;
+    String userid;
+    String email;
+    String pswd;
+    String date;
+    String num;
 
     public int getT() {
         return t;
@@ -18,13 +22,14 @@ public class GS_Reg {
     public void setT(int t) {
         this.t = t;
     }
-    String fname;
-    String lname;
-    String uname;
-    String email;
-    String pswd;
-    String date;
-    String num;
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
+    }
 
     public int getId() {
         return id;
@@ -32,16 +37,16 @@ public class GS_Reg {
 
     public void setId(int id) {
         this.id = id;
-        
     }
-    
+
     public String getFname() {
         return fname;
     }
 
     public void setFname(String fname) {
         this.fname = fname;
-        //System.out.println(fname);
+
+        // System.out.println(fname);
     }
 
     public String getLname() {
@@ -52,13 +57,7 @@ public class GS_Reg {
         this.lname = lname;
     }
 
-    public String getUname() {
-        return uname;
-    }
-
-    public void setUname(String uname) {
-        this.uname = uname;
-    }
+    
 
     public String getEmail() {
         return email;
@@ -91,6 +90,7 @@ public class GS_Reg {
     public void setNum(String number) {
         this.num = number;
     }
-    
-    
 }
+
+
+//~ Formatted by Jindent --- http://www.jindent.com

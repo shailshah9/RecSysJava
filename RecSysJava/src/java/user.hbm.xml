@@ -7,12 +7,12 @@
  <class name="GetterSetter.GS_Reg" table="user">  
  <id name="id">  
  <generator class="increment"></generator>  
- </id>  
+ </id> 
+ <property name="userid"></property> 
  <property name="fname"></property>  
  <property name="lname"></property>  
- <property name="uname"></property>  
- <property name="pswd"></property>  
  <property name="email"></property>  
+ <property name="pswd"></property>
  <property name="date"></property>  
  <property name="num"></property>  
  <property name="t"></property>

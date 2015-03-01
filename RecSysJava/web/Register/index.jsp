@@ -185,27 +185,27 @@
 			<div class="border start">
                             <form action="Register/register.jsp"  method="post" >
                                 <label for="fname">First Name</label>
-                                <input name="fname" required type="text" />
-                                <label for="lname">Last Name</label>
-                                <input name="lname" required type="text" />
-                                <label for="uname">Username</label>
-                                <input name="username" required type="text"/>
+                                <input name="fname" required type="text"  value="Shail"/>
+                                <label for="lname" ">Last Name</label>
+                                <input name="lname" required type="text" value="Shah" />
+                                <label for="userid">Username</label>
+                                <input name="userid" required type="text"/>
 				<label for="email">Email</label>
-				<input name="email" required type="email" placeholder="Email" />
+				<input name="email" required type="email" placeholder="Email" value="shailshah9@gmail.com"/>
 				<label for="pass">Password</label>
-				<input name="pass" type="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" />
+				<input name="pswd" type="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" value="hello@123A"/>
                                 <label for="pass">Confirm Password</label>
-				<input name="cpass" type="password" placeholder="Confirm Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="validatePassword"/>
+				<input name="cpass" type="password" placeholder="Confirm Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="validatePassword" value="hello@123A"/>
                                 <script type="text/javascript">
 window.onload = function () {
-    document.getElementById("pass").onchange = validatePassword;
+    document.getElementById("pswd").onchange = validatePassword;
     document.getElementById("cpass").onchange = validatePassword;
 }
 function validatePassword(){
-var pass2=document.getElementById("pass").value;
+var pass2=document.getElementById("pswd").value;
 var pass1=document.getElementById("cpass").value;
 if(pass1!=pass2)
-    document.getElementById("pass").setCustomValidity("Passwords Don't Match");
+    document.getElementById("pswd").setCustomValidity("Passwords Don't Match");
 else
     document.getElementById("cpass").setCustomValidity('');  
 //empty string means no validation error
@@ -213,10 +213,11 @@ else
 </script>
                                 <label for="date">Date</label>
                                 <input type="date" name="date"/>
-                                <label for="phno">Phone number</label>
-                                <input type="number" name="phno"/>
+                                <label for="num">Phone number</label>
+                                <input type="number" name="num" value="9898"/>
+                                <input type="hidden" name="t" value="1"/>
                                 <input type="submit" value="LOG IN"/>
-                                        
+                                      
                                         
                             </form>
 			</div>
