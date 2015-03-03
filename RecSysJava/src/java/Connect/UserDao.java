@@ -12,9 +12,10 @@ import GetterSetter.GS_Reg;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
+
 
 public class UserDao {
     private static ServiceRegistry serviceRegistry;
@@ -25,8 +26,7 @@ public class UserDao {
         Configuration configuration = new Configuration();
 
         configuration.configure();
-        serviceRegistry =
-            new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
+        serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 
         Session     session = new Configuration().configure().buildSessionFactory(serviceRegistry).openSession();

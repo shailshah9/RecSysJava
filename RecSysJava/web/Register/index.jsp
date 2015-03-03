@@ -197,14 +197,15 @@
                                 <label for="pass">Confirm Password</label>
 				<input name="cpass" type="password" placeholder="Confirm Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="validatePassword" value="hello@123A"/>
                                 <script type="text/javascript">
-window.onload = function () {
+                                    {
+    window.onload = function () {
     document.getElementById("pswd").onchange = validatePassword;
     document.getElementById("cpass").onchange = validatePassword;
 }
 function validatePassword(){
 var pass2=document.getElementById("pswd").value;
 var pass1=document.getElementById("cpass").value;
-if(pass1!=pass2)
+if(pass1!==pass2)
     document.getElementById("pswd").setCustomValidity("Passwords Don't Match");
 else
     document.getElementById("cpass").setCustomValidity('');  
