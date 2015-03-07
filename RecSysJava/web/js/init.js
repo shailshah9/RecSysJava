@@ -147,6 +147,7 @@
 								$bg = $body;
 
 						// Trigger scroll handler.
+                                                        
 							$window.triggerHandler('scroll.overflow_parallax');
 
 					})

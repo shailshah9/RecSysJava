@@ -15,6 +15,7 @@ public class GS_Reg {
     String date;
     String num;
 
+       
     public int getT() {
         return t;
     }

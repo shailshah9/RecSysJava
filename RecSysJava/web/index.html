@@ -1,12 +1,10 @@
 <!DOCTYPE HTML>
 <!--
-	Overflow by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	
 -->
 <html>
 	<head>
-		<title>Overflow by HTML5 UP</title>
+		<title>RecSysJava</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -27,79 +25,67 @@
 		<!-- Header -->
 			<section id="header">
 				<header>
-					<h1>Overflow</h1>
-					<p>By HTML5 UP</p>
+					<h1>RecSysJava</h1>
+                                        <p>Shail Shah</p>
+                                        <p>Hitarthi Tewani</p>
 				</header>
 				<footer>
-					<a href="#banner" class="button style2 scrolly-middle">Proceed as anticipated</a>
+					<a href="#banner" class="button style2 scrolly-middle">Proceed as anticipated :P</a>
 				</footer>
 			</section>
 
 		<!-- Banner -->
 			<section id="banner">
 				<header>
-					<h2>This is Overflow</h2>
+                                        
+                                    <h2>This is RecSysJava <br />A Movie Recommender System</h2>
 				</header>
-				<p>A brand new site template designed by <a href="http://n33.co">AJ</a> for <a href="http://html5up.net">HTML5 UP</a>.<br />
-				It’s fully responsive, built on <strong>skel</strong>, and of course entirely free<br />
-				under the <a href="http://html5up.net/license">Creative Commons license</a>.</p>
+				<p>The motivation for this method was that the movies similar to both the movies will have common top topics. 
+                                    For example, if the two movies are about [war, life struggle] and [life struggle, romance], (i.e. their 
+                                    posterior has high values corresponding to these topics) then returning movies that are about life struggle
+                                    might be a good idea. For both the movies, the top common topics were chosen. 
+                                    The words were then given to an inverted index which returned the words corresponding to these movies. 
+                                    The returned set of movies were then ranked based on their topic posteriors, the movies for which the top 
+                                    common topics had high stakes were placed above those for which these numbers were lower.</p>
+                                
 				<footer>
-					<a href="#first" class="button style2 scrolly">Act on this message</a>
+                                    <a href="#first" class="button style2 scrolly">Go search it!!</a><br><br>
+                                        <a href="Register/index.jsp" class="button style2 scrolly">Register</a>
 				</footer>
 			</section>
 
 		<!-- Feature 1 -->
-			<article id="first" class="container box style1 right">
-				<a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>Lorem ipsum<br />
-						dolor sit amet</h2>
-					</header>
-					<p>Tortor faucibus ullamcorper nec tempus purus sed penatibus. Lacinia pellentesque eleifend vitae est elit tristique velit tempus etiam.</p>
-				</div>
+                <section id="first">
+			<article id="first" class="container box style3">
+				
+				<header>
+					<h2>Search here</h2>
+					<p>Why don't try out our service?</p>
+				</header>
+				<form method="post" action="#first">
+					<div class="row 50%">
+						<div class="6u"><input type="text" class="text" name="movie" placeholder="Enter movie text here" /></div>
+						
+					</div>
+					
+					<div class="row">
+						<div class="12u">
+							<ul class="actions">
+								<li><input type="submit" value="Search it" /></li>
+							</ul>
+						</div>
+					</div>
+				</form>
 			</article>
+                </section>
 
 		<!-- Feature 2 -->
-			<article class="container box style1 left">
-				<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>Mollis posuere<br />
-						lectus lacus</h2>
-					</header>
-					<p>Rhoncus mattis egestas sed fusce sodales rutrum et etiam ullamcorper. Etiam egestas scelerisque ac duis magna lorem ipsum dolor.</p>
-				</div>
-			</article>
-
-		<!-- Portfolio -->
-			<article class="container box style2">
-				<header>
-					<h2>Magnis parturient</h2>
-					<p>Justo phasellus et aenean dignissim<br />
-					placerat cubilia purus lectus.</p>
-				</header>
-				<div class="inner gallery">
-					<div class="row 0%">
-						<div class="3u"><a href="images/fulls/01.jpg" class="image fit"><img src="images/thumbs/01.jpg" alt="" title="Ad infinitum" /></a></div>
-						<div class="3u"><a href="images/fulls/02.jpg" class="image fit"><img src="images/thumbs/02.jpg" alt="" title="Dressed in Clarity" /></a></div>
-						<div class="3u"><a href="images/fulls/03.jpg" class="image fit"><img src="images/thumbs/03.jpg" alt="" title="Raven" /></a></div>
-						<div class="3u"><a href="images/fulls/04.jpg" class="image fit"><img src="images/thumbs/04.jpg" alt="" title="I'll have a cup of Disneyland, please" /></a></div>
-					</div>
-					<div class="row 0%">
-						<div class="3u"><a href="images/fulls/05.jpg" class="image fit"><img src="images/thumbs/05.jpg" alt="" title="Cherish" /></a></div>
-						<div class="3u"><a href="images/fulls/06.jpg" class="image fit"><img src="images/thumbs/06.jpg" alt="" title="Different." /></a></div>
-						<div class="3u"><a href="images/fulls/07.jpg" class="image fit"><img src="images/thumbs/07.jpg" alt="" title="History was made here" /></a></div>
-						<div class="3u"><a href="images/fulls/08.jpg" class="image fit"><img src="images/thumbs/08.jpg" alt="" title="People come and go and walk away" /></a></div>
-					</div>
-				</div>
-			</article>
-
+			
 		<!-- Contact -->
 			<article class="container box style3">
 				<header>
-					<h2>Nisl sed ultricies</h2>
-					<p>Diam dignissim lectus eu ornare volutpat orci.</p>
+					<h2>Contact Us</h2>
+					<p>Did you like our work? Why don't drop your details?</p>
 				</header>
 				<form method="post" action="#">
 					<div class="row 50%">
@@ -289,7 +275,7 @@
 			</ul>
 			<div class="copyright">
 				<ul class="menu">
-					<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					<li>&copy; No rights reserved.</li><li>Developers: <a href="#">Shail Shah</a></li><li><a href="#">Hitarthi Tewani</a></li>
 				</ul>
 			</div>
 		</section>
