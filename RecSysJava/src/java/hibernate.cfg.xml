@@ -10,5 +10,6 @@
     <property name="hibernate.connection.autocommit">true</property>
     <property name="hibernate.connection.password">root</property>
     <mapping resource="user.hbm.xml"/>
+    <mapping resource="movie.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
