@@ -36,6 +36,7 @@ public class sql extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
     
         try{
+            System.out.println("In sql");
             /* TODO output your page here. You may use following sample code.*/
             Class.forName("com.mysql.jdbc.Driver");
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/recsysjava","root","root");
@@ -48,8 +49,9 @@ public class sql extends HttpServlet {
         finally
         {
             ServletContext sc=this.getServletContext();
-            RequestDispatcher rd=sc.getRequestDispatcher("/Register/register.jsp");
-            rd.include(request,response);
+            response.sendRedirect("authenticate.jsp");
+      /*     RequestDispatcher rd=sc.getRequestDispatcher("/Login/authenticate.jsp");
+            rd.include(request,response);*/
         }
              
     }

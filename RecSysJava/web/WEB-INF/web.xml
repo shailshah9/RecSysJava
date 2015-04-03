@@ -4,9 +4,17 @@
         <servlet-name>sql</servlet-name>
         <servlet-class>Connect.sql</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetMovies</servlet-name>
+        <servlet-class>Search.GetMovies</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>sql</servlet-name>
         <url-pattern>/sql</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetMovies</servlet-name>
+        <url-pattern>/GetMovies</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -15,5 +23,5 @@
     </session-config>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
+    </welcome-file-list>  
 </web-app>

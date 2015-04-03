@@ -3,7 +3,7 @@
     Created on : 1 Feb, 2015, 4:54:57 PM
     Author     : bsnl
 --%>
-
+<jsp:include page="/RecSysJava/sql"/>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.security.MessageDigest"%>
@@ -15,13 +15,14 @@
         <title>Registration</title>
     </head>
     <body>    
-        <%--jsp:include page="/RecSysJava/sql"/--%>
+        
         <%! PreparedStatement ps;
         Connection con;
         boolean t;
         byte[] pswd;
         String fname,lname,email,pass,date,num,userid,query;%>
-        <% try{
+        <% 
+            try{
             con=(Connection)request.getAttribute("con");
             fname=request.getParameter("fname");
             lname=request.getParameter("lname");

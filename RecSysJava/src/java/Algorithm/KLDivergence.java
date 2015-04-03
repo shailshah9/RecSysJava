@@ -29,9 +29,9 @@ public class KLDivergence {
       return klDiv / log2; // moved this division out of the loop -DM
     }
     
-    public static void main(String[] arg0){
+   /* public static void main(String[] arg0){
         double[] x={0.1,0.2,0.3,0.4};
         double[] y={0.15,0.2,0.4,0.25};
         System.out.println(klDivergence(x,y));
-    }
+    }*/
 }

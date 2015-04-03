@@ -17,19 +17,13 @@
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
-                        <link rel="stylesheet" href="css/fixed-navigation-bar.css">
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
 	<body>
 
 		<!-- Header -->
-                
- 
-                        
-                
 			<section id="header">
-                            
 				<header>
 					<h1>RecSysJava</h1>
                                         <p>Shail Shah</p>
@@ -39,40 +33,6 @@
 					<a href="#banner" class="button style2 scrolly-middle">Proceed as anticipated :P</a>
 				</footer>
 			</section>
-                
-                <section id="screen1">
-
-	<p>Scroll down</p>
-
-	<nav>
-		<ul>
-			<li><a href="#">Home</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Services</a></li>
-			<li><a href="#">Team</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
-	</nav>
-
-</section>
-	
-
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
-<script>
-   $(document).ready(function(){
-	   $(window).bind('scroll', function() {
-	   var navHeight = $( window ).height() - 70;
-			 if ($(window).scrollTop() > navHeight) {
-				 $('nav').addClass('fixed');
-			 }
-			 else {
-				 $('nav').removeClass('fixed');
-			 }
-		});
-	});
-</script>
 
 		<!-- Banner -->
 			<section id="banner">
@@ -102,7 +62,7 @@
 					<h2>Search here</h2>
 					<p>Why don't try out our service?</p>
 				</header>
-				<form method="post" action="#first">
+				<form method="post" action="GetMovies">
 					<div class="row 50%">
 						<div class="6u"><input type="text" class="text" name="movie" placeholder="Enter movie text here" /></div>
 						

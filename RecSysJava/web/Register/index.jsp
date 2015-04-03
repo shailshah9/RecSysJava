@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>Login</title>
+	<title>Register</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 	<script>
 		$(function(){
@@ -186,7 +186,7 @@
                             <form action="Register/register.jsp"  method="post" >
                                 <label for="fname">First Name</label>
                                 <input name="fname" required type="text"  value="Shail"/>
-                                <label for="lname" ">Last Name</label>
+                                <label for="lname">Last Name</label>
                                 <input name="lname" required type="text" value="Shah" />
                                 <label for="userid">Username</label>
                                 <input name="userid" required type="text"/>
@@ -217,9 +217,7 @@ else
                                 <label for="num">Phone number</label>
                                 <input type="number" name="num" value="9898"/>
                                 <input type="hidden" name="t" value="1"/>
-                                <input type="submit" value="LOG IN"/>
-                                      
-                                        
+                                <input type="submit" value="LOG IN"/>                               
                             </form>
 			</div>
 		</div>
