@@ -6,14 +6,17 @@
 package Search;
 
 import Algorithm.KLDivergence;
-import GetterSetter.GS_Movie;
 import GetterSetter.GS_Movkld;
 import com.google.common.primitives.Doubles;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,6 +38,7 @@ import org.hibernate.service.ServiceRegistry;
 public class GetMovies extends HttpServlet {
     private static ServiceRegistry serviceRegistry;
     private static SessionFactory  sessionFactory;
+    private static List id;
     public static void listMovies(String movname)
     {
         
@@ -56,62 +60,89 @@ public class GetMovies extends HttpServlet {
            List p11=p1.list();
            try
            {
-               //System.out.println(p11.iterator().next());
-               String movid=(String) p11.iterator().next();
-               //System.out.println(movid);
-               Query qrya=session.createQuery("select l from GS_Movie m,GS_Movkld l where l.movid=:movid");
-               qrya.setParameter("movid", movid);
-               List movies1 = qrya.list();
-               Iterator iterator1=movies1.iterator();
-               GS_Movkld moviea = (GS_Movkld) iterator1.next(); 
-               ArrayList<Double> m1=new ArrayList<Double>();
-               m1.add(moviea.getAction());
-               m1.add(moviea.getAdventure());
-               m1.add(moviea.getAnimation());
-               m1.add(moviea.getComedy());
-               m1.add(moviea.getCrime());
-               m1.add(moviea.getDrama());
+                //System.out.println(p11.iterator().next());
+                String movid=(String) p11.iterator().next();
+                //System.out.println(movid);
+                Query qrya=session.createQuery("From GS_Movkld l where l.movid=:movid");
+                qrya.setParameter("movid", movid);
+                List movies1 = qrya.list();
+                Iterator iterator1=movies1.iterator();
+                GS_Movkld moviea = (GS_Movkld) iterator1.next(); 
+                ArrayList<Double> m1=new ArrayList<Double>();
+                m1.add(moviea.getAction());
+                m1.add(moviea.getAdventure());
+                m1.add(moviea.getAnimation());
+                m1.add(moviea.getComedy());
+                m1.add(moviea.getCrime());
+                m1.add(moviea.getDrama());
+                //Query qry1=session.createQuery("From GS_Movkld");
+                // qry1.setParameter("movid", movid);
+                Query qryb = session.createQuery("From GS_Movkld l where l.movid!=:movid");
+                qryb.setParameter("movid", movid);
+                List movies = qryb.list();
+                int i=0;
+                HashMap<String,Double> map = new HashMap<String,Double>();
+                //  ValueComparator bvc =  new ValueComparator(map);
+                // TreeMap<String,Double> sorted_map = new TreeMap<String,Double>(bvc);
+                //System.out.println(movies);
+                for (Iterator iterator = movies.iterator(); iterator.hasNext();){              
+                    GS_Movkld movie = (GS_Movkld) iterator.next(); 
+
+                    ArrayList<Double> m2=new ArrayList<>();
+                    m2.add(movie.getAction());
+                    m2.add(movie.getAdventure());
+                    m2.add(movie.getAnimation());
+                    m2.add(movie.getComedy());
+                    m2.add(movie.getCrime());
+                    m2.add(movie.getDrama());
+                    double[] m11=Doubles.toArray(m1);
+                    double[] m22=Doubles.toArray(m2);
+                    //Double temp = KLDivergence.klDivergence(m11, m22);
+                    Double temp;
+                     if((temp=KLDivergence.klDivergence(m11, m22))<=0.29999876)
+                    {
+                     /*   System.out.println("Movie #" + i);
+                      System.out.println("Action: " + movie.getAction()); 
+                      System.out.println("Comedy: " + movie.getComedy()); 
+                      System.out.println("Drama: " + movie.getDrama()); 
+                      i++;*/
+                        map.put(movie.getMovid(),temp);
+                    }
+                    else
+                    {
+                        //System.out.println("Not recommended");
+                        continue;
+                    }
+                }
+                ArrayList as = new ArrayList( map.entrySet() );
+         
+                Collections.sort( as , new Comparator() {
+                    public int compare( Object o1 , Object o2 )
+                    {
+                        Map.Entry e1 = (Map.Entry)o1 ;
+                        Map.Entry e2 = (Map.Entry)o2 ;
+                        Double first = (Double)e1.getValue();
+                        Double second = (Double)e2.getValue();
+                        return first.compareTo( second );
+                    }
+                });
+                //List as1=as.subList(0, 5);
+                Iterator j = as.iterator();
                
-               
-           
-               
-               
-               //Query qry1=session.createQuery("From GS_Movkld");
-              // qry1.setParameter("movid", movid);
-               List movies = session.createQuery("From GS_Movkld").list(); 
-           int i=0;
-           //System.out.println(movies);
-           for (Iterator iterator = movies.iterator(); iterator.hasNext();){              
-              GS_Movkld movie = (GS_Movkld) iterator.next(); 
-              ArrayList<Double> m2=new ArrayList<>();
-              m2.add(movie.getAction());
-              m2.add(movie.getAdventure());
-              m2.add(movie.getComedy());
-              m2.add(movie.getCrime());
-              m2.add(movie.getDrama());
-                   double[] m11=Doubles.toArray(m1);
-                   double[] m22=Doubles.toArray(m2);
-              if(KLDivergence.klDivergence(m11, m22)<=0.5)
-              {
-                  System.out.println("Movie #" + i);
-                System.out.println("Action: " + movie.getAction()); 
-                System.out.println("Comedy: " + movie.getComedy()); 
-                System.out.println("Drama: " + movie.getDrama()); 
-                i++;
-              }
-              else
-              {
-                  System.out.println("Not recommended");
-              }
-           }
-               
-            tx.commit();
-           }
+                while ( j.hasNext() && i<5)
+                {
+                   //System.out.println( (Map.Entry)j.next());
+                    System.out.println(((Map.Entry)j.next()).getKey());
+                    i++;
+                }
+                
+                tx.commit();
+            }
             
             catch(NoSuchElementException nsee)
             {
                  System.out.println("No Such Movie Found!!");   
-                }
+            }
           // response.sendRedirect("localhost:8080/RecSysJava");
         }catch (HibernateException e) {        
            if (tx!=null) tx.rollback();
@@ -127,6 +158,7 @@ public class GetMovies extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String movname=request.getParameter("movie");
             listMovies(movname);
+            request.setAttribute("rm", id);
             response.sendRedirect("result.jsp");
             
         }
