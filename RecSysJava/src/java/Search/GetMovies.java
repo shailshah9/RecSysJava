@@ -52,7 +52,7 @@ public class GetMovies extends HttpServlet {
         Transaction tx = null;
         try{
            tx = session.beginTransaction();
-           System.out.println(movname);
+           System.out.println("Input movie: "+movname);
            String qry="select m.movid from GS_Movie m where m.name= :movname";
            
            Query p1=session.createQuery(qry);
@@ -128,11 +128,20 @@ public class GetMovies extends HttpServlet {
                 });
                 //List as1=as.subList(0, 5);
                 Iterator j = as.iterator();
+                System.out.println("\n\n\nSuggestions\n");
                
                 while ( j.hasNext() && i<5)
                 {
                    //System.out.println( (Map.Entry)j.next());
-                    System.out.println(((Map.Entry)j.next()).getKey());
+                    String temp=(String) ((Map.Entry)j.next()).getKey();
+                    System.out.println("Rec Mov ID: "+temp);
+                    String qry123="select m.name from GS_Movie m where m.movid= :movid";
+           
+                    Query p1123=session.createQuery(qry123);
+                    p1123.setParameter("movid", temp);
+                    List p111=p1123.list();
+                    System.out.println("Rec Movie name: " + p111.iterator().next());
+                    
                     i++;
                 }
                 

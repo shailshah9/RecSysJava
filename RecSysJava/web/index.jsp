@@ -64,7 +64,10 @@
 				</header>
 				<form method="post" action="GetMovies">
 					<div class="row 50%">
-						<div class="6u"><input type="text" class="text" name="movie" placeholder="Enter movie text here" /></div>
+						<div class="6u"  style="padding-left: 0.7em;
+                                                    padding-right: 50px;
+                                                        margin-left: 11.5em;">
+    <input type="text" class="text" name="movie" placeholder="Enter movie text here" /></div>
 						
 					</div>
 					
@@ -108,8 +111,8 @@
 			</article>
 
 		<!-- Generic -->
-		<!--
-			<article class="container box style3">
+		
+			<!--<article class="container box style3">
 				<header>
 					<h2>Generic Box</h2>
 					<p>Just a generic box. Nothing to see here.</p>
@@ -218,6 +221,7 @@
 						</table>
 					</div>
 				</section>
+                        
 				<section>
 					<header>
 						<h3>Form</h3>
@@ -262,8 +266,8 @@
 					</form>
 				</section>
 			</article>
-		-->
-
+		
+                           -->
 		<section id="footer">
 			<ul class="icons">
 				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
