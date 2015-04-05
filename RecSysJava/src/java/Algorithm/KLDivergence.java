@@ -18,12 +18,12 @@ public class KLDivergence {
 
 
       double klDiv = 0.0;
-
-      for (int i = 0; i < p1.length; ++i) {
+      
+      for (int i = 0; i < p1.length; ++i) {        
         if (p1[i] == 0) { continue; }
         if (p2[i] == 0.0) { continue; } // Limin
 
-      klDiv += p1[i] * Math.log( p1[i] / p2[i] );
+      klDiv += p1[i] * Math.log( p1[i] / p2[i] );      
       }
 
       return klDiv / log2; // moved this division out of the loop -DM

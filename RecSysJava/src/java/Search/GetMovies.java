@@ -59,7 +59,7 @@ public class GetMovies extends HttpServlet {
                //System.out.println(p11.iterator().next());
                String movid=(String) p11.iterator().next();
                //System.out.println(movid);
-               Query qrya=session.createQuery("select l from GS_Movie m,GS_Movkld l where l.movid=:movid");
+               Query qrya=session.createQuery("From GS_Movkld l where l.movid=:movid");
                qrya.setParameter("movid", movid);
                List movies1 = qrya.list();
                Iterator iterator1=movies1.iterator();
@@ -78,20 +78,24 @@ public class GetMovies extends HttpServlet {
                
                //Query qry1=session.createQuery("From GS_Movkld");
               // qry1.setParameter("movid", movid);
-               List movies = session.createQuery("From GS_Movkld").list(); 
+               Query qryb = session.createQuery("From GS_Movkld l where l.movid!=:movid");
+               qryb.setParameter("movid", movid);
+               List movies = qryb.list();
            int i=0;
            //System.out.println(movies);
            for (Iterator iterator = movies.iterator(); iterator.hasNext();){              
               GS_Movkld movie = (GS_Movkld) iterator.next(); 
+              
               ArrayList<Double> m2=new ArrayList<>();
               m2.add(movie.getAction());
               m2.add(movie.getAdventure());
+              m2.add(movie.getAnimation());
               m2.add(movie.getComedy());
               m2.add(movie.getCrime());
               m2.add(movie.getDrama());
                    double[] m11=Doubles.toArray(m1);
                    double[] m22=Doubles.toArray(m2);
-              if(KLDivergence.klDivergence(m11, m22)<=0.5)
+              if(KLDivergence.klDivergence(m11, m22)<=0.29999876)
               {
                   System.out.println("Movie #" + i);
                 System.out.println("Action: " + movie.getAction()); 
@@ -127,6 +131,7 @@ public class GetMovies extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String movname=request.getParameter("movie");
             listMovies(movname);
+            
             response.sendRedirect("result.jsp");
             
         }
