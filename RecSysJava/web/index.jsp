@@ -16,6 +16,7 @@
 		<script src="js/init.js"></script>
                 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
                 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+                <link rel="shortcut icon" href="images/rsj.png" />
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -24,6 +25,7 @@
                 <script>
   $(function() {
     var availableTags = [
+        "",
       "ironman",
       "ironman2",
       "ironman3",
