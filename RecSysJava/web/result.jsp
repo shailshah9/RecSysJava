@@ -4,7 +4,7 @@
 -->
 <html>
 	<head>
-		<title>RecSysJava</title>
+		<title>Results @ RecSysJava</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -27,16 +27,19 @@
                   String name2=(String)request.getAttribute("name2");
                   String name3=(String)request.getAttribute("name3");
                   String name4=(String)request.getAttribute("name4");
+                  String name5=(String)request.getAttribute("name5");
                   
                   String plot1=(String)request.getAttribute("plot1");
                   String plot2=(String)request.getAttribute("plot2");
                   String plot3=(String)request.getAttribute("plot3");
                   String plot4=(String)request.getAttribute("plot4");
+                  String plot5=(String)request.getAttribute("plot5");
                   
                   String year1=(String)request.getAttribute("year1");
                   String year2=(String)request.getAttribute("year2");
                   String year3=(String)request.getAttribute("year3");
                   String year4=(String)request.getAttribute("year4");
+                  String year5=(String)request.getAttribute("year5");
                %>
                
               
@@ -81,6 +84,12 @@
 									<td>${name4}</td>
 									<td>${plot4}</td>
 									<td>${year4}</td>
+                                                                </tr>
+                                                                <tr>
+									
+									<td>${name5}</td>
+									<td>${plot5}</td>
+									<td>${year5}</td>
                                                                 </tr>
 							</tbody>
 							

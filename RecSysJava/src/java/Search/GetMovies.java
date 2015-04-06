@@ -54,6 +54,9 @@ public class GetMovies extends HttpServlet {
     private static String moviename4;
     private static String movieplot4;
     private static String movieyear4;
+    private static String moviename5;
+    private static String movieplot5;
+    private static String movieyear5;
     
     
     public static void listMovies(String movname)
@@ -114,21 +117,15 @@ public class GetMovies extends HttpServlet {
                     m2.add(movie.getDrama());
                     double[] m11=Doubles.toArray(m1);
                     double[] m22=Doubles.toArray(m2);
-                    //Double temp = KLDivergence.klDivergence(m11, m22);
+                    
                     Double temp;
                      if((temp=KLDivergence.klDivergence(m11, m22))<=0.29999876)
                     {
-                     /*   System.out.println("Movie #" + i);
-                      System.out.println("Action: " + movie.getAction()); 
-                      System.out.println("Comedy: " + movie.getComedy()); 
-                      System.out.println("Drama: " + movie.getDrama()); 
-                      i++;*/
-                        map.put(movie.getMovid(),temp);
+                       map.put(movie.getMovid(),temp);
                     }
                     else
                     {
-                        //System.out.println("Not recommended");
-                        continue;
+                       continue;
                     }
                 }
                 ArrayList as = new ArrayList( map.entrySet() );
@@ -143,13 +140,13 @@ public class GetMovies extends HttpServlet {
                         return first.compareTo( second );
                     }
                 });
-                //List as1=as.subList(0, 5);
+                
                 Iterator j = as.iterator();
                 System.out.println("\n\n\nSuggestions\n");
                
-                while ( j.hasNext() && i<4)
+                while ( j.hasNext() && i<5)
                 {
-                   //System.out.println( (Map.Entry)j.next());
+                   
                     String temp=(String) ((Map.Entry)j.next()).getKey();
                     System.out.println("Rec Mov ID: "+temp);
                     String qry123="select m from GS_Movie m where m.movid= :movid";
@@ -189,6 +186,14 @@ public class GetMovies extends HttpServlet {
                                 System.out.println("Plot: "+ movieplot4);
                                 System.out.println("Year: "+movieyear4);
                                 break;
+                        case 4: moviename5=movieaaa.getName();
+                                movieplot5=movieaaa.getPlot();
+                                movieyear5=String.valueOf(movieaaa.getYear());
+                                System.out.println("Rec Movie name: " + moviename5);
+                                System.out.println("Plot: "+ movieplot5);
+                                System.out.println("Year: "+movieyear5);
+                                break;
+                   
                     }
                     
                    

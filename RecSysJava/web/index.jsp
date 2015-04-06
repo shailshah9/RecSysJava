@@ -14,11 +14,29 @@
 		<script src="js/jquery.poptrox.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/init.js"></script>
+                <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+                <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+                <script>
+  $(function() {
+    var availableTags = [
+      "ironman",
+      "ironman2",
+      "ironman3",
+      "ironman4",
+      "how",
+      "hello",
+      "shail.shah2"
+    ];
+    $( "#movie" ).autocomplete({
+      source: availableTags
+    });
+  });
+  </script>
 	</head>
 	<body>
 
@@ -67,7 +85,7 @@
 						<div class="6u"  style="padding-left: 0.7em;
                                                     padding-right: 50px;
                                                         margin-left: 11.5em;">
-    <input type="text" class="text" name="movie" placeholder="Enter movie text here" /></div>
+                                                    <input id="movie" type="text" class="text" name="movie" placeholder="Enter movie text here"  /></div>
 						
 					</div>
 					
