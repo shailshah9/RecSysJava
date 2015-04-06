@@ -6,6 +6,7 @@
 package Search;
 
 import Algorithm.KLDivergence;
+import GetterSetter.GS_Movie;
 import GetterSetter.GS_Movkld;
 import com.google.common.primitives.Doubles;
 import java.io.IOException;
@@ -18,6 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,6 +41,21 @@ public class GetMovies extends HttpServlet {
     private static ServiceRegistry serviceRegistry;
     private static SessionFactory  sessionFactory;
     private static List id;
+    private static ArrayList al;
+    private static String moviename1;
+    private static String movieplot1;
+    private static String movieyear1;
+    private static String moviename2;
+    private static String movieplot2;
+    private static String movieyear2;
+    private static String moviename3;
+    private static String movieplot3;
+    private static String movieyear3;
+    private static String moviename4;
+    private static String movieplot4;
+    private static String movieyear4;
+    
+    
     public static void listMovies(String movname)
     {
         
@@ -130,18 +147,51 @@ public class GetMovies extends HttpServlet {
                 Iterator j = as.iterator();
                 System.out.println("\n\n\nSuggestions\n");
                
-                while ( j.hasNext() && i<5)
+                while ( j.hasNext() && i<4)
                 {
                    //System.out.println( (Map.Entry)j.next());
                     String temp=(String) ((Map.Entry)j.next()).getKey();
                     System.out.println("Rec Mov ID: "+temp);
-                    String qry123="select m.name from GS_Movie m where m.movid= :movid";
-           
+                    String qry123="select m from GS_Movie m where m.movid= :movid";
+                    
                     Query p1123=session.createQuery(qry123);
                     p1123.setParameter("movid", temp);
                     List p111=p1123.list();
-                    System.out.println("Rec Movie name: " + p111.iterator().next());
+                    Iterator it1=p111.iterator();
+                    GS_Movie movieaaa = (GS_Movie) it1.next();
+                    switch(i)
+                    {
+                        case 0: moviename1=movieaaa.getName();
+                                movieplot1=movieaaa.getPlot();
+                                movieyear1=String.valueOf(movieaaa.getYear());
+                                System.out.println("Rec Movie name: " + moviename1);
+                                System.out.println("Plot: "+ movieplot1);
+                                System.out.println("Year: "+movieyear1);
+                                break;
+                        case 1: moviename2=movieaaa.getName();
+                                movieplot2=movieaaa.getPlot();
+                                movieyear2=String.valueOf(movieaaa.getYear());
+                                System.out.println("Rec Movie name: " + moviename2);
+                                System.out.println("Plot: "+ movieplot2);
+                                System.out.println("Year: "+movieyear2);
+                                break;
+                        case 2: moviename3=movieaaa.getName();
+                                movieplot3=movieaaa.getPlot();
+                                movieyear3=String.valueOf(movieaaa.getYear());
+                                System.out.println("Rec Movie name: " + moviename3);
+                                System.out.println("Plot: "+ movieplot3);
+                                System.out.println("Year: "+movieyear3);
+                                break;
+                        case 3: moviename4=movieaaa.getName();
+                                movieplot4=movieaaa.getPlot();
+                                movieyear4=String.valueOf(movieaaa.getYear());
+                                System.out.println("Rec Movie name: " + moviename4);
+                                System.out.println("Plot: "+ movieplot4);
+                                System.out.println("Year: "+movieyear4);
+                                break;
+                    }
                     
+                   
                     i++;
                 }
                 
@@ -167,9 +217,21 @@ public class GetMovies extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String movname=request.getParameter("movie");
             listMovies(movname);
-            request.setAttribute("rm", id);
-            response.sendRedirect("result.jsp");
+            request.setAttribute("name1",moviename1 );
+            request.setAttribute("plot1", movieplot1);
+            request.setAttribute("year1", movieyear1);
+            request.setAttribute("name2",moviename2 );
+            request.setAttribute("plot2", movieplot2);
+            request.setAttribute("year2", movieyear2);
+            request.setAttribute("name3",moviename3 );
+            request.setAttribute("plot3", movieplot3);
+            request.setAttribute("year3", movieyear3);
+            request.setAttribute("name4",moviename4 );
+            request.setAttribute("plot4", movieplot4);
+            request.setAttribute("year4", movieyear4);
             
+            RequestDispatcher rd=request.getRequestDispatcher("result.jsp");
+            rd.forward(request, response);
         }
     }
 

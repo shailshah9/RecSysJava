@@ -87,7 +87,7 @@
 		<!-- Contact -->
 			<article class="container box style3">
 				<header>
-					<h2>Contact Us</h2>
+					<h2>About Us</h2>
 					<p>Did you like our work? Why don't drop your details?</p>
 				</header>
 				<form method="post" action="#">
