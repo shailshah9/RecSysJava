@@ -44,7 +44,8 @@
 				
 				<section>
 					<header>
-                                            <h3>Here we go, <b><u>RecSysJava</u></b> suggests below listed movies</h3>
+                                            <h1>Here we go, </h1>
+                                            <h3><b><u>RecSysJava</u></b> suggests below listed movies</h3>
 					</header>
 					<div class="table-wrapper">
 						<table class="default">
