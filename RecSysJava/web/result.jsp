@@ -28,19 +28,19 @@
                   String name2=(String)request.getAttribute("name2");
                   String name3=(String)request.getAttribute("name3");
                   String name4=(String)request.getAttribute("name4");
-                  String name5=(String)request.getAttribute("name5");
+                  //String name5=(String)request.getAttribute("name5");
                   
                   String plot1=(String)request.getAttribute("plot1");
                   String plot2=(String)request.getAttribute("plot2");
                   String plot3=(String)request.getAttribute("plot3");
                   String plot4=(String)request.getAttribute("plot4");
-                  String plot5=(String)request.getAttribute("plot5");
+                  //String plot5=(String)request.getAttribute("plot5");
                   
                   String year1=(String)request.getAttribute("year1");
                   String year2=(String)request.getAttribute("year2");
                   String year3=(String)request.getAttribute("year3");
                   String year4=(String)request.getAttribute("year4");
-                  String year5=(String)request.getAttribute("year5");
+                  //String year5=(String)request.getAttribute("year5");
                %>
                
               
@@ -86,12 +86,7 @@
 									<td>${plot4}</td>
 									<td>${year4}</td>
                                                                 </tr>
-                                                                <tr>
-									
-									<td>${name5}</td>
-									<td>${plot5}</td>
-									<td>${year5}</td>
-                                                                </tr>
+                                                                
 							</tbody>
 							
 						</table>
@@ -99,8 +94,20 @@
 				</section>
                         
 				
-			</article>
-		
+			
+		<div class="row">
+						<div class="12u" style="padding-left: 0.7em;
+                                                    padding-right: 50px;
+                                                        margin-left: 11.5em;">
+							<ul class="actions">
+                                                            <li><a href="index.jsp"><input type="button" value="          Go back          " /></a></li>
+                                                            <br>
+                                                            <br>
+                                                            <li><a href="history.jsp"><input type="button" value="Previous Searches" /></a></li>
+							</ul>
+						</div>
+					</div>
+                                                                </article>
                            
                 <section id="footer">
                     <ul class="icons">

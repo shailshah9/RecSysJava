@@ -6,14 +6,20 @@
 package Search;
 
 import Algorithm.KLDivergence;
+import Connect.HistoryDao;
+import Connect.HistoryResDao;
+import GetterSetter.GS_History;
+import GetterSetter.GS_HistoryRes;
 import GetterSetter.GS_Movie;
 import GetterSetter.GS_Movkld;
 import com.google.common.primitives.Doubles;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -41,7 +47,7 @@ public class GetMovies extends HttpServlet {
     private static ServiceRegistry serviceRegistry;
     private static SessionFactory  sessionFactory;
     private static List id;
-    private static ArrayList al;
+    
     private static String moviename1;
     private static String movieplot1;
     private static String movieyear1;
@@ -54,9 +60,10 @@ public class GetMovies extends HttpServlet {
     private static String moviename4;
     private static String movieplot4;
     private static String movieyear4;
-    private static String moviename5;
-    private static String movieplot5;
-    private static String movieyear5;
+    
+    //private static String moviename5;
+    //private static String movieplot5;
+    //private static String movieyear5;
     
     
     public static void listMovies(String movname)
@@ -78,6 +85,28 @@ public class GetMovies extends HttpServlet {
            Query p1=session.createQuery(qry);
            p1.setParameter("movname", movname);
            List p11=p1.list();
+           
+           //Add to history
+            GS_HistoryRes gS_HistoryRes=new GS_HistoryRes();
+            gS_HistoryRes.setName(movname);
+            
+            
+            Date date= new Date();
+            System.out.println(date.getTime());
+            String dateStr=String.valueOf(date.getTime());
+            gS_HistoryRes.setDate(dateStr);
+            
+            //HistoryResDao.add(gS_HistoryRes);
+            HistoryResDao.add(gS_HistoryRes);
+            //added to history
+           
+           //HistoryRes generate
+            GS_History gS_History=new GS_History();
+            
+            
+            
+            
+           
            try
            {
                 //System.out.println(p11.iterator().next());
@@ -164,6 +193,13 @@ public class GetMovies extends HttpServlet {
                                 System.out.println("Rec Movie name: " + moviename1);
                                 System.out.println("Plot: "+ movieplot1);
                                 System.out.println("Year: "+movieyear1);
+                                gS_History.setDate(dateStr);
+                                gS_History.setName(moviename1);
+                                gS_History.setPlot(movieplot1);
+                                gS_History.setYear(movieyear1);
+                                
+                                HistoryDao.add(gS_History);
+            
                                 break;
                         case 1: moviename2=movieaaa.getName();
                                 movieplot2=movieaaa.getPlot();
@@ -171,6 +207,12 @@ public class GetMovies extends HttpServlet {
                                 System.out.println("Rec Movie name: " + moviename2);
                                 System.out.println("Plot: "+ movieplot2);
                                 System.out.println("Year: "+movieyear2);
+                                gS_History.setDate(dateStr);
+                                gS_History.setName(moviename2);
+                                gS_History.setPlot(movieplot2);
+                                gS_History.setYear(movieyear2);
+                                
+                                HistoryDao.add(gS_History);
                                 break;
                         case 2: moviename3=movieaaa.getName();
                                 movieplot3=movieaaa.getPlot();
@@ -178,6 +220,12 @@ public class GetMovies extends HttpServlet {
                                 System.out.println("Rec Movie name: " + moviename3);
                                 System.out.println("Plot: "+ movieplot3);
                                 System.out.println("Year: "+movieyear3);
+                                gS_History.setDate(dateStr);
+                                gS_History.setName(moviename3);
+                                gS_History.setPlot(movieplot3);
+                                gS_History.setYear(movieyear3);
+                                
+                                HistoryDao.add(gS_History);
                                 break;
                         case 3: moviename4=movieaaa.getName();
                                 movieplot4=movieaaa.getPlot();
@@ -185,14 +233,20 @@ public class GetMovies extends HttpServlet {
                                 System.out.println("Rec Movie name: " + moviename4);
                                 System.out.println("Plot: "+ movieplot4);
                                 System.out.println("Year: "+movieyear4);
+                                gS_History.setDate(dateStr);
+                                gS_History.setName(moviename4);
+                                gS_History.setPlot(movieplot4);
+                                gS_History.setYear(movieyear4);
+                                
+                                HistoryDao.add(gS_History);
                                 break;
-                        case 4: moviename5=movieaaa.getName();
+                        /*case 4: moviename5=movieaaa.getName();
                                 movieplot5=movieaaa.getPlot();
                                 movieyear5=String.valueOf(movieaaa.getYear());
                                 System.out.println("Rec Movie name: " + moviename5);
                                 System.out.println("Plot: "+ movieplot5);
                                 System.out.println("Year: "+movieyear5);
-                                break;
+                                break;*/
                    
                     }
                     
@@ -234,6 +288,10 @@ public class GetMovies extends HttpServlet {
             request.setAttribute("name4",moviename4 );
             request.setAttribute("plot4", movieplot4);
             request.setAttribute("year4", movieyear4);
+            
+            
+            
+            
             
             RequestDispatcher rd=request.getRequestDispatcher("result.jsp");
             rd.forward(request, response);

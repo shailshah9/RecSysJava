@@ -11,10 +11,10 @@
  <property name="movid"></property>  
  <property name="name"></property>  
  <property name="year"></property>  
- <property name="plot"></property>  
  <property name="genre"></property>
  <property name="cast"></property>  
  <property name="producer"></property>  
  <property name="director"></property>
+ <property name="plot"></property>
    </class>
 </hibernate-mapping>
