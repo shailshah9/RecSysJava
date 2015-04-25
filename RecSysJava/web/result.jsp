@@ -103,7 +103,7 @@
                                                             <li><a href="index.jsp"><input type="button" value="          Go back          " /></a></li>
                                                             <br>
                                                             <br>
-                                                            <li><a href="history.jsp"><input type="button" value="Previous Searches" /></a></li>
+                                                            <li><form action="GetHistory" method="post"><input type="submit" name="submit" value="Previous Searches" /></form></li>
 							</ul>
 						</div>
 					</div>

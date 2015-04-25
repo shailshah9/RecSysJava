@@ -1,18 +1,15 @@
 <%-- 
-    Document   : add_movie
-    Created on : 3 Mar, 2015, 6:41:41 PM
-    Author     : bsnl
+    Document   : index_movie
+    Created on : 3 Mar, 2015, 6:42:21 PM
+    Author     : shail
 --%>
 
-<%@page import="Connect.MovieDao"%>  
-<jsp:useBean id="obj" class="GetterSetter.GS_Movie">  
-</jsp:useBean>  
-<jsp:setProperty property="*" name="obj"/> 
-<html>
-	<head>
-<title>RecSysJava</title>
-		<meta charset="utf-8" />
-	
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Delete Movie</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 	<script>
 		$(function(){
@@ -71,7 +68,7 @@
 				background-color: #39f;
 				/* Just do something for IE-suck */
 				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00BA1B', endColorstr='#00BA1B',GradientType=1);
-                                    height:20%
+                                    height:100%
          
 			}
 
@@ -180,27 +177,18 @@
 				text-shadow: 0 1px 1px #000;
 			}
 		</style>
-                </head>
+	</head>
+        
 	<body id="home">
 		<div class="rain">
 			<div class="border start">
-                            <form action="/RecSysJava/index.jsp"  method="post" >   
-  
-                                    <%  
-int i=MovieDao.add(obj);
-//out.print(i+"\n");
-if(i>0){%>     
-<label for="movie">Movie added successfully</label>
-<input name="movie" required type="hidden" /><%}%>  
-<input type="submit" value="Go Back"/>
+                            <form action="/RecSysJava/DeleteMov"  method="post" >
+                                <label for="movie">Movie Name</label>
+                                <input name="movie" required type="text" />
+                                
+                                <input type="submit" value="Delete Movie"/>
                             </form>
 			</div>
 		</div>
-				
-        </body>
+	</body>
 </html>
-<!--out.print("<h2>Movie added successfully.</h2>"); -->
-
-
-<!DOCTYPE html>
-

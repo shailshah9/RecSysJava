@@ -1,18 +1,14 @@
 <%-- 
-    Document   : add_movie
-    Created on : 3 Mar, 2015, 6:41:41 PM
-    Author     : bsnl
+    Document   : movdet
+    Created on : Apr 24, 2015, 9:47:59 PM
+    Author     : Shail Shah
 --%>
-
-<%@page import="Connect.MovieDao"%>  
-<jsp:useBean id="obj" class="GetterSetter.GS_Movie">  
-</jsp:useBean>  
-<jsp:setProperty property="*" name="obj"/> 
-<html>
-	<head>
-<title>RecSysJava</title>
-		<meta charset="utf-8" />
-	
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Update Movie</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 	<script>
 		$(function(){
@@ -71,7 +67,7 @@
 				background-color: #39f;
 				/* Just do something for IE-suck */
 				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00BA1B', endColorstr='#00BA1B',GradientType=1);
-                                    height:20%
+                                    height:100%
          
 			}
 
@@ -180,27 +176,42 @@
 				text-shadow: 0 1px 1px #000;
 			}
 		</style>
-                </head>
+	</head>
+        
 	<body id="home">
 		<div class="rain">
 			<div class="border start">
-                            <form action="/RecSysJava/index.jsp"  method="post" >   
-  
-                                    <%  
-int i=MovieDao.add(obj);
-//out.print(i+"\n");
-if(i>0){%>     
-<label for="movie">Movie added successfully</label>
-<input name="movie" required type="hidden" /><%}%>  
-<input type="submit" value="Go Back"/>
+                            <%
+                            String name=(String)request.getAttribute("name");
+                            String movid=(String)request.getAttribute("movid");
+                            String plot=(String)request.getAttribute("plot");
+                            String year=(String)request.getAttribute("year");
+                            String dir=(String)request.getAttribute("dir");
+                            String genre=(String)request.getAttribute("genre");
+                            String prod=(String)request.getAttribute("prod");
+                            String cast=(String)request.getAttribute("cast");
+                            %>
+                            <form action="UpdateMovie"  method="post" >
+                                <label for="name">Movie Name: ${name}</label>
+                                <input name="name" required type="text" value="name" />
+                                <label for="movid">Movie ID: ${movid}</label>
+                                <input name="movid" required type="text" value="name" />
+                                <label for="year">Year of Release: ${year}</label>
+                                <input name="year" required type="text" value="0"/>
+				<label for="plot">Plot: ${plot}</label>
+				<input name="plot" required type="text" value="name" />
+				<label for="genre">Genre: ${genre}</label>
+				<input name="genre" required type="text" value="name" />
+                                <label for="cast">Cast: ${cast}</label>
+				<input name="cast" required type="text" value="name"/>
+                                <label for="producer">Producer: ${prod}</label>
+                                <input name="producer" required type="text" value="name"/>
+                                <label for="director">Director: ${dir}</label>
+                                <input name="director" required type="text" value="name"/>
+                                <input type="submit" value="Update Movie"/>
                             </form>
 			</div>
 		</div>
-				
-        </body>
+	</body>
 </html>
-<!--out.print("<h2>Movie added successfully.</h2>"); -->
-
-
-<!DOCTYPE html>
 

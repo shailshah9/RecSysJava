@@ -47,7 +47,7 @@ public class GetMovies extends HttpServlet {
     private static ServiceRegistry serviceRegistry;
     private static SessionFactory  sessionFactory;
     private static List id;
-    
+
     private static String moviename1;
     private static String movieplot1;
     private static String movieyear1;
@@ -60,6 +60,9 @@ public class GetMovies extends HttpServlet {
     private static String moviename4;
     private static String movieplot4;
     private static String movieyear4;
+    
+    private static String holly;
+    private static String bolly;
     
     //private static String moviename5;
     //private static String movieplot5;
@@ -111,6 +114,14 @@ public class GetMovies extends HttpServlet {
            {
                 //System.out.println(p11.iterator().next());
                 String movid=(String) p11.iterator().next();
+                if(movid.contains("h"))
+                {
+                    holly="h";
+                }
+                else
+                {
+                    holly="b";
+                }
                 //System.out.println(movid);
                 Query qrya=session.createQuery("From GS_Movkld l where l.movid=:movid");
                 qrya.setParameter("movid", movid);
@@ -126,8 +137,9 @@ public class GetMovies extends HttpServlet {
                 m1.add(moviea.getDrama());
                 //Query qry1=session.createQuery("From GS_Movkld");
                 // qry1.setParameter("movid", movid);
-                Query qryb = session.createQuery("From GS_Movkld l where l.movid!=:movid");
+                Query qryb = session.createQuery("From GS_Movkld l where l.movid!=:movid and l.movid like :holly ");
                 qryb.setParameter("movid", movid);
+                qryb.setParameter("holly", holly);
                 List movies = qryb.list();
                 int i=0;
                 HashMap<String,Double> map = new HashMap<String,Double>();
@@ -148,7 +160,7 @@ public class GetMovies extends HttpServlet {
                     double[] m22=Doubles.toArray(m2);
                     
                     Double temp;
-                     if((temp=KLDivergence.klDivergence(m11, m22))<=0.29999876)
+                     if((temp=KLDivergence.klDivergence(m11, m22))<=0.19999876)
                     {
                        map.put(movie.getMovid(),temp);
                     }
@@ -276,6 +288,23 @@ public class GetMovies extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String movname=request.getParameter("movie");
             listMovies(movname);
+            
+            if(movname.equalsIgnoreCase(""))
+            {
+                moviename1=null;
+                 movieplot1=null;
+                 movieyear1=null;
+                moviename2=null;
+                 movieplot2=null;
+                 movieyear2=null;
+                 moviename3=null;
+                 movieplot3=null;
+                 movieyear3=null;
+                 moviename4=null;
+                 movieplot4=null;
+                 movieyear4=null;
+                
+                
             request.setAttribute("name1",moviename1 );
             request.setAttribute("plot1", movieplot1);
             request.setAttribute("year1", movieyear1);
@@ -288,8 +317,26 @@ public class GetMovies extends HttpServlet {
             request.setAttribute("name4",moviename4 );
             request.setAttribute("plot4", movieplot4);
             request.setAttribute("year4", movieyear4);
-            
-            
+            }
+            else
+            {
+                 
+                
+                
+                request.setAttribute("name1",moviename1 );
+            request.setAttribute("plot1", movieplot1);
+            request.setAttribute("year1", movieyear1);
+            request.setAttribute("name2",moviename2 );
+            request.setAttribute("plot2", movieplot2);
+            request.setAttribute("year2", movieyear2);
+            request.setAttribute("name3",moviename3 );
+            request.setAttribute("plot3", movieplot3);
+            request.setAttribute("year3", movieyear3);
+            request.setAttribute("name4",moviename4 );
+            request.setAttribute("plot4", movieplot4);
+            request.setAttribute("year4", movieyear4);
+              
+            }
             
             
             

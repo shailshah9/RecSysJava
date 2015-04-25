@@ -1,18 +1,15 @@
 <%-- 
-    Document   : add_movie
-    Created on : 3 Mar, 2015, 6:41:41 PM
+    Document   : index_movie
+    Created on : 3 Mar, 2015, 6:42:21 PM
     Author     : bsnl
 --%>
 
-<%@page import="Connect.MovieDao"%>  
-<jsp:useBean id="obj" class="GetterSetter.GS_Movie">  
-</jsp:useBean>  
-<jsp:setProperty property="*" name="obj"/> 
-<html>
-	<head>
-<title>RecSysJava</title>
-		<meta charset="utf-8" />
-	
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Add Movie</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 	<script>
 		$(function(){
@@ -71,7 +68,7 @@
 				background-color: #39f;
 				/* Just do something for IE-suck */
 				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00BA1B', endColorstr='#00BA1B',GradientType=1);
-                                    height:20%
+                                    height:100%
          
 			}
 
@@ -180,27 +177,31 @@
 				text-shadow: 0 1px 1px #000;
 			}
 		</style>
-                </head>
+	</head>
+        
 	<body id="home">
 		<div class="rain">
 			<div class="border start">
-                            <form action="/RecSysJava/index.jsp"  method="post" >   
-  
-                                    <%  
-int i=MovieDao.add(obj);
-//out.print(i+"\n");
-if(i>0){%>     
-<label for="movie">Movie added successfully</label>
-<input name="movie" required type="hidden" /><%}%>  
-<input type="submit" value="Go Back"/>
+                            <form action="add_movie.jsp"  method="post" >
+                                <label for="name">Movie Name</label>
+                                <input name="name" required type="text" />
+                                <label for="movid">Movie ID</label>
+                                <input name="movid" required type="text" />
+                                <label for="year">Year of Release</label>
+                                <input name="year" required type="text"/>
+				<label for="plot">Plot</label>
+				<input name="plot" required type="text" />
+				<label for="genre">Genre</label>
+				<input name="genre" required type="text" />
+                                <label for="cast">Cast</label>
+				<input name="cast" required type="text" />
+                                <label for="producer">Producer</label>
+                                <input name="producer" required type="text" />
+                                <label for="director">Director</label>
+                                <input name="director" required type="text" />
+                                <input type="submit" value="Add Movie"/>
                             </form>
 			</div>
 		</div>
-				
-        </body>
+	</body>
 </html>
-<!--out.print("<h2>Movie added successfully.</h2>"); -->
-
-
-<!DOCTYPE html>
-
