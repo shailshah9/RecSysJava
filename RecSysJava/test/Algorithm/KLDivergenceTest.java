@@ -32,8 +32,8 @@ public class KLDivergenceTest extends TestCase {
      */
     public void testKlDivergence() {
         System.out.println("klDivergence");
-        double[] p1 = null;
-        double[] p2 = null;
+        double[] p1 = {0.1,0.2};
+        double[] p2 = {0.1,0.2};
         double expResult = 0.0;
         double result = KLDivergence.klDivergence(p1, p2);
         assertEquals(expResult, result, 0.0);

@@ -144,12 +144,43 @@
 			</article>
                 </section>
 
-		<!-- Feature 2 -->
-			
+                <section id="first1">
+			<article id="first" class="container box style3">
+				
+				<header>
+					<h2>Movie Manager</h2>
+					<p>Why don't try out our movie manager!</p>
+				</header>
+				<form method="post" action="AddMovie/index.jsp">
+					<div class="row 50%">
+						<div class="6u"  style="padding-left: 0.7em;
+                                                    padding-right: 50px;
+                                                        margin-left: 11.5em;">
+                                                    </div>
+						
+					</div>
+					
+					<div class="row">
+						<div class="12u">
+							<ul class="actions">
+                                                            <li><input type="submit" value="Add Movie" /></li></form>
+                                                                <form method="post" action="/RecSysJava/DelMovie/index.jsp">
+                                                                    <li><input type="submit" value="Delete Movie" /></li></form>
+                                                                <form method="post" action="UpdateMovie/index.jsp">
+                                                                    <li><input type="submit" value="Update Movie" /></li></form>
+                                                                
+							</ul>
+						</div>
+					</div>
+				</form
+			</article>
+                </section>
+
+                	
 		<!-- Contact -->
 			<article class="container box style3">
 				<header>
-					<h2>About Us</h2>
+					<h2>Contact Us</h2>
 					<p>Did you like our work? Why don't drop your details?</p>
 				</header>
 				<form method="post" action="#">

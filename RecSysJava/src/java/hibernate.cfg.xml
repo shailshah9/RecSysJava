@@ -10,5 +10,7 @@
     <mapping resource="user.hbm.xml"/>
     <mapping resource="movie.hbm.xml"/>
     <mapping resource="movkld.hbm.xml"/>
+    <mapping resource="history.hbm.xml"/>
+    <mapping resource="history_res.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

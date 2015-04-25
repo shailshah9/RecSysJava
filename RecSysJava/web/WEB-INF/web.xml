@@ -8,6 +8,26 @@
         <servlet-name>GetMovies</servlet-name>
         <servlet-class>Search.GetMovies</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetHistory</servlet-name>
+        <servlet-class>Search.GetHistory</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteDao</servlet-name>
+        <servlet-class>Connect.DeleteDao</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteMov</servlet-name>
+        <servlet-class>Search.DeleteMov</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateMovie</servlet-name>
+        <servlet-class>Search.UpdateMovie</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetMovDetails</servlet-name>
+        <servlet-class>GetMovDetails</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>sql</servlet-name>
         <url-pattern>/sql</url-pattern>
@@ -16,12 +36,32 @@
         <servlet-name>GetMovies</servlet-name>
         <url-pattern>/GetMovies</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetHistory</servlet-name>
+        <url-pattern>/GetHistory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteDao</servlet-name>
+        <url-pattern>/DeleteDao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteMov</servlet-name>
+        <url-pattern>/DeleteMov</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateMovie</servlet-name>
+        <url-pattern>/UpdateMovie</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetMovDetails</servlet-name>
+        <url-pattern>/GetMovDetails</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+            3
         </session-timeout>
     </session-config>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>  
+    </welcome-file-list>
 </web-app>
